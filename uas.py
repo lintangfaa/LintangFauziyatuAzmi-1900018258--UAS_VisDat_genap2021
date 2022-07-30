@@ -1,6 +1,6 @@
 # import library yang sudah diinstall sebelumnya
 import pandas as pd # untuk load data
-import plotly as px  # untuk proses pembuatan grafik
+# import plotly as px  # untuk proses pembuatan grafik
 import streamlit as st # untuk menjalankan program
 
 # setting website page (judul, logo, layout)
@@ -62,7 +62,7 @@ st.markdown("""---""")
 
 # BAP TILANG BY WILAYAH [BAR CHART]
 tilang_wilayah = (df_selection.groupby(by=["Wilayah"]).sum()[["BAP_Tilang"]])
-fig_tilang = px.express.bar(
+fig_tilang = plotly.express.bar(
     tilang_wilayah,
     x=tilang_wilayah.index,
     y="BAP_Tilang",
@@ -88,7 +88,7 @@ df_select = df_tilang.query(
 )
 
 # --- PLOT PIE CHART
-pie_chart = px.express.pie(df_select,
+pie_chart = plotly.express.pie(df_select,
                 title='<b>Total Penderekan tiap Bulan</b>',
                 values='Count',
                 names='Bulan')
@@ -99,7 +99,7 @@ left_column.plotly_chart(fig_tilang, use_container_width=True)
 right_column.plotly_chart(pie_chart, use_container_width=True)
 
 # --- LINE CHART
-line_chart = px.express.line(df_select, x="Wilayah", y="OCP2_Total", title='<b>Total OCP Roda 2 tiap Wilayah</b>')
+line_chart = poltly.express.line(df_select, x="Wilayah", y="OCP2_Total", title='<b>Total OCP Roda 2 tiap Wilayah</b>')
 
 left_column2, right_column2 = st.columns(2)
 left_column.plotly_chart(line_chart, use_container_width=True)
