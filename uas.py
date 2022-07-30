@@ -1,5 +1,6 @@
 # import library yang sudah diinstall sebelumnya
 import pandas as pd # untuk load data
+from pandas import openpyxl
 # import plotly as px  # untuk proses pembuatan grafik
 import streamlit as st # untuk menjalankan program
 
